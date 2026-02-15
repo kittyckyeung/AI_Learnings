@@ -1,0 +1,68 @@
+
+- Challenges of RCA
+	- Complexity: distributed systems with numerous interconnected components
+	- Dynamic Nature: Frequent changes and updates make tracking difficult
+	- Data Overload: Massive amount of logs and metrics to analyze
+
+- Log Complexity
+	- Volume
+	- Variety
+	- Velocity
+	
+- LLM can help
+	- Log mining to extract insight from log data
+	- Adaptability to handle various log formats and sources
+	- Automation automate anomaly detection and root cause identification
+
+- Log analysis
+- Anomaly detection
+- predictive maintenance
+
+- Data quality
+- Contextual awareness
+- Human oversight
+
+- Data preparation
+- Model selection
+- Continuous monitoring
+===============================================
+- Enhance DevOps efficiency
+- Observability to provide deeper insight
+- Streamline operation with ChatOps - Integrate with chat platform, e.g. Teams, Slack to enable real-time communication, use chatbot to trigger CICD pipeline and manage incident
+- Automate and optimize documentation with AI
+
+- Anomaly detection
+- forecast/predictive analytics
+- root cause analysis
+- clustering, segmenting machine data
+
+- Generative AI
+	- query using nature language
+	- create dashboard using natural language
+	- summarize log, metrics, trace
+	- finding anomaly in the logs
+	
+- ChatOps can...
+	- CICD management
+	- incident management
+	- IaC
+	- Security and Compliance
+  + AI can
+	- intelligent incident response
+	- enhanced workflow execution
+	- generate concise incident summaries
+
+- MS Teams
+	- power virtual agents with copilot studio
+	- Azure OpenAI service with Microsoft bot framework
+	- Azure Logic Apps with teams connector
+
+- Documentation
+	- convert terraform code into coherent summary
+	- create diagram using eraser.io
+	
+- Post incident analysis with GenAI
+	- standardize post-incident analysis for clarity an consistency
+	- Generate actionable followup task
+	- drive knowledge from past post-incident reports
+	

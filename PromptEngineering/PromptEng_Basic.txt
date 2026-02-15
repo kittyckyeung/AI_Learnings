@@ -1,0 +1,1 @@
+The Role-Task-Context-Format (RTCF) is a powerful structure for creating highly effective prompts.

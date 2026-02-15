@@ -1,0 +1,25 @@
+
+- Now AI. Use natural language / conversation for asking questions.
+- Supported by Large Language Models (LLMs)
+- LLMs built on neural network architectures
+- Can proceed, analyze, comprehend and generate the nautual language
+- Learn from vast amount of data
+- Early Language Model -> Neural Language Model -> Attention Mechanism -> BERT and Pre-Training -> GPT Series
+
+==================================================================================================
+- GPT - Generative Pre-trained Transformer Model
+	- Generative - generating human like text
+	- Pre-trained - Learn from vast amount of data
+	- Transformer - Underlying architecture of the model
+
+- LLMs
+	- Neural Network + Attention Mechanism + Transformer Architecture
+	- Transformer Architecture
+		- Encoder-decoder structure (Input) (Output) 
+		- Self-Attention Mechanism (Weight the importance of each work and understand the relatioship)
+		- Multi-Head Attention (Allow to play attention to different parts of inputs at the same time)
+		- Positional Encoding (To understand the location of the words) 
+		- Feed-forward Neural Network (In each layer of Transformer. Process the outputs and capture complex patterns)
+
+==================================================================================================
+
