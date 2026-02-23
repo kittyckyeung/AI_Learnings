@@ -1,0 +1,272 @@
+Asking an LLM to write an email for you is a standalone static task.
+
+An AI agent, on the other hand, can connect to your company's database, analyze client profiles, decide how to customize emails for different client groups, write these emails and send them to clients, analyze open and click rates, monitor client responses, and then refine the initial email strategy it adopted to boost conversions of future campaigns.
+
+AI agents can perform all these activities by connecting to various tools such as databases, email providers, data, and CRM systems.
+
+Agents learn from the new information they've extracted and then adapt and refine their actions, acting in an intelligent way as a human would. Moreover, AI agents can work with various types of media, including text, voice, video, and code.
+
+All this is made possible by the multimodal capability of generative AI and the newest foundation models big tech firms have released.
+
+When you think of AI agents, you can imagine a teammate who works tirelessly, learns continuously, and adapts to your company's needs 24 over seven.
+
+===============================================
+
+In this section of the course, we'll explore the key components involved in building AI agents.
+
+These include the environment in which the AI agent interacts with sensors, allowing the agent to perceive its environment.
+
+The model, which helps the agent interpret its perceptions and guide its understanding.
+
+Decision making logic which determines how the agent selects appropriate actions and actuators.
+
+The mechanisms through which the agent executes actions and affects its environment.
+
+And lastly, the feedback mechanisms allow the agent to evaluate whether it has successfully achieved its intended goals.
+
+===============================================
+
+AI agents can handle a wide range of tasks and adapt to changing conditions in real time.
+
+This means they're able to work in a changing environment.
+
+===============================================
+
+AI researchers aspire to provide agents with such capabilities using data collection tools.
+
+In a broader sense, we refer to sensors as the means by which agents receive input from their environment.
+
+Sensors allow them to gather information by scraping the web, accessing APIs, interpreting images from cameras, capturing audio through microphones, or analyzing data from IoT devices.
+
+Essentially, sensors enable AI agents to perceive their surroundings in much the same way human senses do.
+
+This gathered information is then processed by the agent, allowing it to make sense of its environment and take appropriate actions.
+
+In the case of self-driving cars, the input sensors typically include cameras, lidar sensors, GPS signals, and a reliable internet connection to the manufacturer's cloud infrastructure.
+
+For an online shopping AI agent, however, the sensors involve web scrapers, collecting product information, APIs, accessing user browsing history modules, performing price comparisons and integrations, fetching real time weather data.
+
+Therefore, AI agents collect input from the environment using various types of sensors.
+
+The model layer helps agents interpret information and is responsible for knowing, but knowing and understanding information isn't enough.
+
+When we use an LLM as an AI agent's model, the distinction between model and decision logic can blur.
+
+Typically, the LLM can understand and reason internally.
+
+It can also generate and select appropriate actions.
+
+But is such a separate logic layer needed? It depends.
+
+In many practical implementations, a thin external logic layer is useful for extracting structured actions and ensuring the llms actions are safe and legal.
+
+This gives AI agent Deployers a bit more safety about the agent's agents actions, they'll always need to conform to the external logic layer.
+
+In other instances, instead of a separate decision logic layer, you can use prompt engineering and instruct the LLM how to perform.
+
+The AI agent utilizes actuators, which are mechanisms that allow the agent to interact with the environment.
+
+In some instances, there can be physical actuators like a robot's arm or the steering system of a self-driving car, and other times the agent relies on virtual actuators, such as an API used to execute stock market orders.
+===============================================
+
+1. collecting data (e.g. sensor)
+2. proceeding information (e.g. model / analyzing or evaluting the option)
+3. decision making (e.g. decision making with structured rules or threshold , agent analysis vs pre-define logic)
+4. action upon on it (e.g. actuators, API for trigger an action)
+5. Observe and improve (e.g. feedback loop)
+
+===============================================
+
+In this lesson, we'll define five key characteristics that define sophisticated agents.
+
+1. Profile and persona.
+    include details such as the agent's background, for example marketer or software engineer. Communication style and tone of voice. it clarifies how the agent should interact with users. The values or guidelines it must follow and its unique characteristics or traits.
+2. Memory.
+    provide a PDF with brand tone guidelines and additionally a knowledge base with examples of social media posts that have performed well in the past.
+3. Reasoning.
+    ability to use available information to draw conclusions and solve problems.
+4. Actions.
+    The agent changes the environment. It has an impact
+5. Learning capabilities.
+    observe and utilize its learning capabilities, which would enable it to improve
+
+===============================================
+
+The first type of agent structure will consider is the simple reflex agent.
+
+As one can infer from its name, this is a fundamental tool that reacts directly based on immediate perception.
+
+It doesn't have any internal memory or sophisticated models.
+
+A good example of a simple reflex agent is a thermostat.
+
+The goal of this device is to maintain a fixed temperature, but it isn't capable of learning and adapting.
+
+It can't learn to use electricity more efficiently at certain times of day.
+
+In this case, the simple reflex agent is considered an agent because it perceives its environment and then acts upon that environment. indicating a lack of internal reasoning.
+
+Given that no internal reasoning is occurring and responses don't improve over time, it's safe to conclude that this is not an AI agent, but simply an agent.
+
+===============================================
+
+The next agent type we'll explore is the model based reflex agent.
+
+Like simple reflex agents, these agents perceive their environment and act upon it.
+
+But there's a key distinction.
+
+Model based reflex agents use memory to maintain an internal representation of the environment.
+
+They construct a model of the world around them.
+
+A good example of a model based agent is a robot vacuum cleaner.
+
+So is this an AI agent? Yes.
+
+A model based reflex agent typically qualifies as a simple form of AI because it incorporates a model that enables the agent to understand its environment better.
+
+But this is a simple form of AI because the robot doesn't necessarily learn or adapt based on experience,
+
+its internal model is usually static or updated through fixed rules rather than adaptive learning algorithms.
+
+There's no authentic learning because the robot follows a static set of rules and doesn't improve its strategy based on experience.
+
+It simply keeps track of areas it has already cleaned and updates its internal model based on sensor input.
+
+========
+To say we have sophisticated AI capable of authentic learning, we would need a robot that can adapt through experience, discovering more efficient cleaning patterns and areas that are more polluted to begin with.
+
+Suppose your vacuum cleaner notices, through repeated experiences, that the kitchen floor gets dirtier faster than the hallway.
+
+A genuinely learning vacuum cleaner would start prioritizing the kitchen in its subsequent cleaning runs, because it wouldn't know whether you would provide sufficient cleaning time for both the kitchen and hallway.
+
+===============================================
+
+This is an excellent example of how goal based agents work.
+
+Whenever you use Google Maps or Waze, the application compares the estimated time it will take to reach your desired destination via different routes, and then recommends the fastest one.
+
+They search for action sequences that achieve their goal and plan these actions.
+
+This type of search and planning didn't occur with model based and straightforward reflex agents.
+
+For this reason, goal based agents are a step ahead in terms of AI sophistication.
+
+At the same time, goal based agents often overlook certain subtleties, focusing exclusively on optimizing for goal completion.
+
+At times, Google Maps may recommend routes that are too narrow, barely drivable, or otherwise difficult to navigate.
+
+Illustrating how goal based agents can optimize for their objectives while overlooking practical nuances or user comfort.
+
+===============================================
+
+The next type of agent we'll consider is a utility based agent.
+
+The reason is that utility based agents consider multiple factors to evaluate utility, rather than just achieving a predetermined goal.
+
+It's one thing to try to find and invest in financial securities that offer an annual rate of return above 5%.
+
+That's a goal based mechanism, but a 5% return doesn't paint the whole picture.
+
+A competent investment advisor would also consider such factors as investment volatility, liquidity, and default risk.
+
+These additional factors significantly affect the overall attractiveness or utility of an investment.
+
+Utility based agents carefully evaluate these trade offs, assessing multiple criteria simultaneously, which enables them to make more nuanced and informed decisions.
+
+===============================================
+Learning agents possess the same capabilities as utility based and goal based agents, but are unique in their ability to learn.
+
+New experiences are added to their initial knowledge base, and as the agent gains experience, this enhances its ability to operate in unfamiliar environments and improve performance.
+
+In addition to the familiar components, environment, sensors, internal model, decision logic, and actuators, this system also includes a learning element which enhances the model over time based on feedback.
+
+With this learning element and the mechanics built into the system, the agent is capable of self refining.
+
+It can adapt and improve its capabilities over time.
+===============================================
+
+Learn from Human? 
+
+As previously noted, AI agents are autonomous in their decision making process.
+
+However, they require goals and predefined rules created by humans.
+
+One fundamental concept highlighting human influence throughout an AI agent's life cycle is known as human in the loop hittle. (HITL)
+
+Hittle emphasizes the continuous involvement of humans in the training, monitoring, and refinement of AI systems.
+
+The drawback is that although human feedback is highly valuable, obtaining it can be costly and time consuming.
+
+In our customer support chatbot example, when the agent interacts with clients, it records conversations continuously, gaining new insights.
+
+This information, along with user feedback on service quality and the user's individual preferences, helps the agent adapt and improve its performance over time.
+
+But it takes a significant amount of time to learn from humans, and this type of learning can be rather costly.
+===============================================
+
+Learn from External System?
+
+One of the most exciting aspects of AI agent systems is their ability to learn and continuously improve over time.
+
+To achieve this, they rely on three key sources one.
+
+1. Learning from other agents 
+2. connecting to external sources of information such as the internet
+3. human feedback.
+
+Multi-agent feedback can be instrumental in minimizing the time that human users spend providing direction.
+
+When one of these AI agents encounters a difficult task, such as an error experienced by a user for the first time, it identifies an effective solution through interaction with the client.
+
+Then, this agent can share the solution with other connected agents. The next time another agent faces a similar query, it can confidently offer a proven solution without needing human intervention.
+
+Collaborative agent to agent learning can significantly speed up response times. 
+
+Another meaningful way in which agent systems can learn is by obtaining information from external sources to which they have access.
+
+These external sources can include external datasets, web searches, and APIs that create a bridge with an external system.
+
+After the missing information is retrieved from these tools, the agent can update its knowledge base and perform a genetic reasoning to help illustrate this process.
+
+===============================================
+Agentic AI vs ChatGPT? 
+
+This is one of the crucial distinctions between AI agents and AI tools like ChatGPT.
+
+The sharing of information enables AI agents to be more general purpose than traditional static AI interfaces that have a knowledge cutoff date.
+
+The short answer is ChatGPT is powerful but mostly reactive, while Agentic AI is proactive, autonomous, and designed to get things done on its own.
+
+Agentic AI can:
+- Break a big problem into smaller steps.
+- Access tools, apps, or APIs on its own.
+- Make decisions in real-time.
+- Execute actions without constant human input.
+
+For example:
+- If you ask ChatGPT to plan a trip, it will give you a list of hotels and itineraries.
+- An Agentic AI can not only suggest the plan but also book your flights, reserve the hotel, and send you reminders, all while staying within your budget.
+
+
+- ChatGPT is perfect for brainstorming, creativity, and on-demand answers.
+- Agentic AI is perfect for task execution, automation, and long-term projects.
+
+===============================================
+LLM vs AI workflow vs AI agents?
+
+
+===============================================
+AI Agent framework
+    ReAct and ReWoo (reasoning without observation)
+
+===============================================
+Single vs Multi Agent System
+
+
+===============================================
+
+===============================================
+
+===============================================
