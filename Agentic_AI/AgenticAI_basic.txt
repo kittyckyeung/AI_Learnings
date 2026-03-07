@@ -141,9 +141,8 @@ Suppose your vacuum cleaner notices, through repeated experiences, that the kitc
 
 A genuinely learning vacuum cleaner would start prioritizing the kitchen in its subsequent cleaning runs, because it wouldn't know whether you would provide sufficient cleaning time for both the kitchen and hallway.
 
-===============================================
-
 This is an excellent example of how goal based agents work.
+===============================================
 
 Whenever you use Google Maps or Waze, the application compares the estimated time it will take to reach your desired destination via different routes, and then recommends the fastest one.
 
@@ -256,17 +255,123 @@ For example:
 ===============================================
 LLM vs AI workflow vs AI agents?
 
-
+- User -> Input -> LLM -> Output  
+    (LLM will only act when prompt)
+    (It cannot translate the latest email that I received. Because it doesn't have the latest data)
+- User -> Input -> Email service -> AI Workflow (LLM for translation) -> Output
+    (Do a little bit more advanced work. But need pre-defined in workflow. And still need User trigger)
+- AI agent (read the email itself, and arrange the meeting itself by finding the available timeslot/place)
+    (Does not need user trigger. It is proactive and flexible. It action on its own. It has memory. It can improve over time)
+    
 ===============================================
 AI Agent framework
     ReAct and ReWoo (reasoning without observation)
-
+    "ReAct" = Reasoning and Action (reason, process, determine, execute)
+    "ReWoo" = Reasoning without observation (Plan the entire sequence. it does not gather new info. The plan is execute without deviation)
+    - ReAct may be destract/delay.
+    - ReWoo ignore distraction, it cannot adjust it plan if a resturant is book.
 ===============================================
 Single vs Multi Agent System
+    Multie Agent System
+    - Each agent can has its own strength. Need to orchestrate the task in the workflow.
+    - Tool calling: 
+        - get up to day info
+        - optimze workflow
+        - create task autonomusly
 
+How to manage the multi agent?
+- Manager structure
+    - Central manager coonrdiate mutli agent
+    - can be a manager provide feedback or agent
+- Decentralized structure
+    - Agents are as peer.
+    - Hand off task base on their specicialization
+    - can cross check each other works to provide feedback and mininize issue
+    - Need clarify tasks by separate responsibility
+    - Will be more complicated
+    - Can improve performance and scalability
+    - if the agent is usually do things wrong and struggle on the instruction. Then multi agents is good.
+===============================================
+
+Zero shot Prompting
+    (As agent to prefer task without example)
+One shot
+    (Provide instruction with one examples)
+Few Stot Prompting
+    (Provide instruction with small number of examples 2-10)
+    Beyond a range of few shot is fine tuning. Training the model extensively
+
+Chain of Thought Reasoning (CoT)
+    Ask the AI model to explain their reasoning and list intermediate steps to arrive conclusions
+
+Guardrails (e.g. fence , road signs)
+    To provide safety , protection , mitigate risk
+    - information security
+    - brand alignment
+    - Accuracy
+
+Key Heuristics recommend by OpenAI
+1. data privacy and content safety is the first
+2. Add new Guardrails
+3. Balance security with user experience
+===============================================
+Human intervention is also important for Guardrails
+We can implement human intervention mechanism
+===============================================
+Evaluate Agent
+- Accuracy
+- speed
+- Coherence
+- cost
+- Safety
+===============================================
+Matrix alone won't catch any issue.
+Real world feedbacks and user experience are just as essential for creating an effective and trustworthy 
+
+===============================================
+
+n8n - workflow automation tool
+    - create AI workflow and agent with little coding knowledge, with drag and drop builder.
+
+4 Node types
+1. Triggers (when chat message arrived)
+2. AI agent node (The intelligent)
+3. Logic nodes (if / else)
+4. Action nodes (perfor specific task, e.g. send message in gmail)
+
+===============================================
+Trying in n8n:
+
+you are a helpful AI agent that with the responsibility to use the context provided by user to generate clear, professional and concise email. 
+
+The tone should be professional, polite, formal, positive.
+
+You have to organize the email with proper structure, e.g. greeting, body , closing and signature.
+
+===============================================
+Components need for AI agent
+
+1. API
+    Agent -> API -> External LLM (e.g.Open AI)
+
+2. Cloud
+3. Data (Database, Knowledge Base, ERP, Internet)
+4. Agent Development Framework (LangChain , )
+    - LangChain ; chain - create agentic workflow ;  agent - Smart AI that adjust the action based on new info)
+    - LangChain + LangGraph when a single linear chain is not enough
+    - Microsoft AutoGen ; mutli agent conversation. e.g. research <-> coder <-> reviewer ; exchange messages, share memory, vote on decision
+    - crewai ; organize a group of agents ; streanlined API ; no-code studio interface. 
+    - Google ADK (agent development kit) 
+    - Flowise ; democratize the ability to build agents ; low code tool. GUI interface.
 
 ===============================================
 
 ===============================================
 
 ===============================================
+
+
+
+
+
+
