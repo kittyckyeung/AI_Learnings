@@ -367,10 +367,71 @@ Components need for AI agent
 ===============================================
 
 ===============================================
+Agentic AI
+- autonomy
+- Goal based
+- Adaptable (will improve when learn)
+
+- Set a goal
+- Plan action
+- Execute actions
+===============================================
+Describe one workflow from your own job or studies where you think Agentic AI could replace or assist human effort. Break it into steps (current process vs. AI-powered process).
+
+Example: Customer Support Ticket Resolution
+
+Current Process (Human only):
+
+Customer submits a support request.
+
+Human support agent checks the ticket.
+
+Agent looks up customer data in CRM.
+
+Agent writes a reply or escalates to manager.
+
+With Agentic AI:
+
+Customer submits a support request.
+
+AI agent automatically retrieves customer history from CRM.
+
+AI agent drafts a personalized response.
+
+If the issue is complex, the AI agent escalates only when necessary.
+
+Outcome: Faster resolution reduced human workload, consistent replies.
+===============================================
+Current: Engineer reads incoming bug reports manually.
+
+Current: Classifies issue type and affected service.
+
+Current: Searches logs, dashboards, and past tickets for clues.
+
+AI: Automatically categorizes issues and identifies likely root causes.
+
+AI: Runs log queries, checks metrics, and suggests or applies fixes.
+
+AI: Drafts the response and monitors until the issue is resolved.
+===============================================
+
+Role , Delivery , context
+
 
 ===============================================
 
 
+===============================================
+
+===============================================
+
+===============================================
+
+===============================================
+
+===============================================
+
+===============================================
 
 
 
