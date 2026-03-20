@@ -534,6 +534,198 @@ If customer queries increases, add another Agent to handle routing/prioritizatio
 ===============================================
 
 ===============================================
+1. Goal
+
+To automatically process incoming customer support tickets, generating a professional, first-draft reply that is then reviewed for tone, brand consistency, and compliance.
+
+
+------
+
+2. Agents & Roles
+
+A system of 3 specialized agents, with the option to merge the last two.
+
+• Support Agent: Analyzes the ticket and drafts the initial customer reply.
+
+• Compliance Agent: Reviews and edits the draft for brand voice, sensitivity, and policy alignment.
+
+• Dispatch Agent: Finalizes and formats the reply for delivery, marking the ticket status.
+
+A 2-agent version is possible by merging the Compliance and Dispatch Agent roles into a single "Reviewer" agent.
+
+
+------
+
+3. Deliveries (Exact Outputs)
+
+• Support Agent: A structured output containing:
+
+  ◦ Ticket Summary: Brief summary of the customer's issue.
+
+  ◦ Draft Reply: The initial, unedited response text for the customer.
+
+• Compliance Agent: A structured output containing:
+
+  ◦ Approval Status: "Approved," "Approved with Edits," or "Rejected."
+
+  ◦ Edits Made: A bulleted list of changes (e.g., "Softened tone," "Removed absolute guarantee," "Added required disclaimer").
+
+  ◦ Final Reply Text: The polished, customer-ready response.
+
+• Dispatch Agent: A structured output containing:
+
+  ◦ Formatted Reply: The final text, formatted for the delivery channel (email/chat).
+
+  ◦ Ticket Status: e.g., [READY_FOR_SEND] or [AWAITING_HUMAN_REVIEW].
+
+
+------
+
+4. Context (Inputs/Background)
+
+• Support Agent:
+
+  ◦ The raw customer ticket text (issue, order ID, contact info).
+
+  ◦ The company's FAQ/Policy knowledge base (e.g., RAG vector store).
+
+  ◦ Brand voice guidelines (e.g., "Professional yet friendly").
+
+• Compliance Agent:
+
+  ◦ The Support Agent's Draft Reply and Ticket Summary.
+
+  ◦ A compliance checklist (tone, legal disclaimers, sensitivity keywords).
+
+  ◦ A database of restricted phrases and required disclosures.
+
+• Dispatch Agent:
+
+  ◦ The Compliance Agent's Final Reply Text.
+
+  ◦ The original ticket metadata (ID, channel, customer name).
+
+  ◦ Output templates for email or chat interfaces.
+
+
+------
+
+5. Collaboration Flow
+
+1. A new customer ticket arrives.
+
+2. The Support Agent analyzes it, retrieves relevant policy info, and outputs a Draft Reply.
+
+3. The Compliance Agent receives the draft, reviews it against rules, makes edits, and outputs the Final Reply Text and Approval Status.
+
+4. The Dispatch Agent receives the final text, formats it, updates the ticket status, and outputs the Formatted Reply ready for the CRM or helpdesk system.
+
+The flow is linear. A status of "Rejected" by the Compliance Agent would trigger a loop back to the Support Agent with feedback.
+
+
+------
+
+6. Tools (Only Where Needed)
+
+• RAG Retrieval Tool: Used exclusively by the Support Agent to query the company knowledge base for accurate policy information.
+
+• Compliance Checker (API/Function): Used exclusively by the Compliance Agent to scan for sensitive keywords and verify against a ruleset.
+
+• No other tools are required for this core workflow. The Dispatch Agent uses simple string formatting.
+
+
+------
+
+7. Why This Framework?
+
+I selected AutoGen for this workflow because its core strength is orchestrating multi-agent conversations and task handoffs, which is the essence of this "draft → review → finalize" process. AutoGen's GroupChat and ConversableAgent abstractions perfectly model the sequential collaboration between the Support, Compliance, and Dispatch roles. It provides built-in mechanisms for message passing, conditional routing (e.g., sending a rejected draft back), and seamless integration of the required tools (RAG, Compliance API) via function calling. While Phidata excels at data analysis and LangFlow at visual prototyping, AutoGen is the superior choice for building a robust, automated, multi-step business process like this customer support pipeline.
+Give Feedback
+
+What went well? What could be improved?
+
+KY
+Add feedback...
+Add feedback...
+
+Long Yu
+Posted 6 hours ago
+Using Autogen or Phidata or LangFlow, design a 1–3 agent workflow for a real business task. List goal, agents/roles, deliveries, context, collaboration flow, tools, and why you chose the framework.
+
+Using Autogen or Phidata or LangFlow, design a 1–3 agent workflow for a real business task. List goal, agents/roles, deliveries, context, collaboration flow, tools, and why you chose the framework.
+
+Give Feedback
+
+What went well? What could be improved?
+
+KY
+Add feedback...
+Add feedback...
+PN
+Purushotham Neela
+Posted 2 hours ago
+Using Autogen or Phidata or LangFlow, design a 1–3 agent workflow for a real business task. List goal, agents/roles, deliveries, context, collaboration flow, tools, and why you chose the framework.
+
+1.Goal
+
+2.Agents &Roles
+
+3.Deliveries
+
+4.Context
+
+5.Collaboration Flow
+
+6.Tools
+
+7.Why i chose AutoGen
+
+
+
+Give Feedback
+
+What went well? What could be improved?
+
+KY
+Add feedback...
+Add feedback...
+Course content
+Start
+18. Important Note on External Tools & API Demonstrations
+1min
+Play
+19. AutoGen Setup: High-Speed Inference with Groq
+4min
+Play
+20. Communication Logic: Managing Multi-Agent Chat
+8min
+Play
+21. Orchestrating the User Journey with Agentic Workflow
+4min
+Start
+22. Important Note – Educational Use Only
+1min
+Play
+23. Financial Agent Architecture: System Requirements
+6min
+Play
+24. Phidata Implementation: Constructing the Team
+6min
+Play
+25. Live Execution: Generating AI Investment Insights
+4min
+Play
+26. Visual Programming: Building Agents in Langflow
+8min
+Play
+27. API Deployment: Running Langflow via Python Backend
+8min
+Start
+28. Resources
+1min
+Start
+Quiz 3: Agentic AI tools Quiz
+Start
+Assignment 3: Design a Small Workflow with the Right Tool
 
 ===============================================
 
