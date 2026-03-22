@@ -121,4 +121,128 @@ Log Sources → Ingestion → Hybrid Retrieval (BM25 + Vector) → Reranking →
 
 ========================================================
 
+Great details! Here's a concrete architecture design for your enterprise log analysis agent:
 
+───
+
+🏗️ Architecture Overview
+
+┌─────────────────────────────────────────────────────────────────┐
+│                     ENTERPRISE LOG ANALYSIS AGENT                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  [Splunk] ──→ [Ingestion Agent] ──→ [Message Queue (Kafka/Redis)]│
+│                                          ↓                       │
+│                              ┌─────────────────────┐             │
+│                              │  Real-time Streaming │             │
+│                              └─────────────────────┘             │
+│                                          ↓                       │
+│                              ┌─────────────────────┐             │
+│                              │  Vector DB (Milvus  │             │
+│                              │  or Qdrant)         │             │
+│                              └─────────────────────┘             │
+│                                          ↓                       │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │              AGENTIC AI LAYER (Mistral)                    │  │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────────┐   │  │
+│  │  │ Parser  │→ │ RAG     │→ │ Rerank  │→ │  Analysis   │   │  │
+│  │  │ Agent   │  │ Retriever│  │ Agent   │  │  Engine     │   │  │
+│  │  └─────────┘  └─────────┘  └─────────┘  └─────────────┘   │  │
+│  │                      ↓                                    │  │
+│  │               Self-Correction Loop                        │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                    ↓            ↓            ↓                  │
+│           [ServiceNow]    [Email]    [Custom App API]           │
+│                                                                  │
+│  Deployment: On-prem VM (ingestion) + Kubernetes (AI layer)    │
+└─────────────────────────────────────────────────────────────────┘
+
+───
+
+📦 Component Breakdown
+
+| Component                    | Purpose                                      | Deployment              |
+| ---------------------------- | -------------------------------------------- | ----------------------- |
+| Splunk Ingestion Agent       | Pull logs from Splunk HTTP Event Collector   | On-prem Linux VM        |
+| Message Queue                | Buffer real-time log stream (Kafka or Redis) | On-prem VM or K8s       |
+| Vector DB (Milvus/Qdrant)    | Store log embeddings for semantic search     | Kubernetes              |
+| RAG Pipeline                 | Log parsing, retrieval, reranking, grading   | Kubernetes              |
+| Mistral (self-hosted or API) | LLM for analysis & insights                  | Kubernetes or cloud API |
+| Alert Engine                 | Route alerts to ServiceNow / Email           | Kubernetes              |
+| Custom App Connector         | Push results to your internal app            | Kubernetes              |
+
+───
+
+🔄 Three Modes of Operation
+
+Real-Time Streaming (alerts)
+
+Splunk → Ingestion Agent → Kafka → RAG Pipeline → Mistral → Alert Engine → ServiceNow / Email
+                                          ↓
+                               [Anomaly Detection (Isolation Forest)]
+
+• Triggers on anomaly detection or pattern match
+• Routes to ServiceNow ticket creation or email
+
+On-Demand Query
+
+User → Custom App → OpenClaw Agent → RAG Pipeline → Mistral → Custom App (results)
+
+• User asks questions in natural language
+• Agent queries the vector DB + live Splunk data
+
+Daily Digest
+Cron (08:00 HKT) → OpenClaw Cron Job → RAG Pipeline → Mistral → Discord/Summary → Custom App
+
+• Like today's news setup, but for logs
+• Daily summary delivered to Discord + custom app
+
+───
+
+🔗 Key Integrations
+
+ServiceNow
+
+• REST API to create/update incidents
+• Attach log snippets, root cause, suggested fixes
+• Link related tickets automatically
+
+Email
+• SMTP integration for digest and alerts
+• Filtered by severity (critical → immediate email, warning → digest)
+
+Custom Application
+
+• Webhook or REST API to receive analysis results
+• JSON payload with structured insights
+• Optional: bi-directional (user can query back via API)
+
+───
+
+🚀 Suggested Pilot Setup
+
+For a quick start:
+
+Stage 1 (MVP - 1-2 weeks)
+• Ingest 1 Splunk source → Vector DB
+• OpenClaw agent with on-demand query
+  • Daily digest to Discord
+  • Basic alert routing to email
+Stage 2 (Real-time)
+• Add Kafka/Redis queue
+• Anomaly detection layer
+• ServiceNow integration
+Stage 3 (Full production)
+• Self-hosted Mistral on K8s (GPU nodes)
+• Custom app full integration
+• Scaling to all 10 sources
+
+───
+
+❓ Next Steps to Refine
+
+A few things to narrow down:
+Mistral — Self-hosted (requires GPU VMs) or Mistral API (easier)?
+Anomaly detection — Want ML-based (Isolation Forest) or rule-based first?
+Splunk access — Do you have Splunk HEC URL + token, or need to go through SIEM?
+Custom app — REST webhook receiver, or do you need bidirectional communication
